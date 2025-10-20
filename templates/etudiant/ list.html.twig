@@ -1,0 +1,7 @@
+<ul>
+    {% for etudiant in etudiants %}
+        <li>{{ etudiant | upper }}</li>
+    {% else %}
+        <strong>La liste des étudiants est vide</strong>
+    {% endfor %}
+</ul>

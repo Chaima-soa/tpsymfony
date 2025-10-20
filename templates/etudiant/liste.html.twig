@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des étudiants</title>
+</head>
+<body>
+<h1>Liste des étudiants</h1>
+
+{% if etudiants is empty %}
+    <p>Aucun étudiant trouvé 😢</p>
+{% else %}
+    <ul>
+        {% for e in etudiants %}
+            <li>{{ e|upper }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>Liste des modules</h2>
+<table border="1">
+    <tr>
+        <th>idModule</th>
+        <th>Nom</th>
+        <th>Enseignant</th>
+        <th>Nbre Heures</th>
+        <th>Date</th>
+    </tr>
+
+    {% for m in ListeModules %}
+        <tr>
+            <td>{{ m.id }}</td>
+            <td>{{ m.nom }}</td>
+            <td>{{ m.enseignant }}</td>
+            <td>{{ m.nbrHeures }}</td>
+            <td>{{ m.date }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="{{ path('etudiant') }}">Aller à la page principale</a>
+</body>
+</html>
